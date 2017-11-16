@@ -4,25 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="devices.css">
     <link rel="stylesheet" href="style.css">
     <title>Image Player</title>
 </head>
 
 <body>
     <h1 class="center">Image Player</h1>
-    <div id="slideshow">
-        <div>
-            <img src="//farm6.static.flickr.com/5224/5658667829_2bb7d42a9c_m.jpg" alt="">
+
+    <div class="device device-google-pixel device-black">
+        <div class="device-frame">
+            <div class="device-content">
+                <!-- <div id="slideshow">
+                    <div>
+                        <img src="//farm6.static.flickr.com/5224/5658667829_2bb7d42a9c_m.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="//farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Plus15-Calgary-7ave.JPG/220px-Plus15-Calgary-7ave.JPG" alt="">
+                    </div>
+                    <div>
+                        Pretty cool eh? This slide is proof the content can be anything.
+                    </div>
+                </div> -->
+                <audio id="music" preload="true">
+                    <source src="http://www.alexkatz.me/codepen/music/interlude.mp3">
+                    <source src="http://www.alexkatz.me/codepen/music/interlude.ogg">
+                </audio>
+                <div id="audioplayer">
+                    <button id="pButton" class="play"></button>
+                    <div id="timeline">
+                        <div id="playhead"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <img src="//farm6.static.flickr.com/5230/5638093881_a791e4f819_m.jpg" alt="">
+        <div class="device-stripe">
+
         </div>
-        <div>
-            Pretty cool eh? This slide is proof the content can be anything.
-        </div>
+        <div class="device-header"></div>
+        <div class="device-sensors"></div>
+        <div class="device-btns"></div>
+        <div class="device-power"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
+    <script src="player.js"></script>
     <script src="index.js"></script>
 </body>
 
