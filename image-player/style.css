@@ -46,7 +46,6 @@
 	float: left;
 	border-radius: 15px;
 	background: rgba(0,0,0,.3);
-  
 }
 #playhead{
 	width: 10px;
@@ -54,4 +53,40 @@
 	border-radius: 50%;
 	margin-top: 1px;
 	background: rgba(0, 0, 0,1);
+}
+#media-video {
+    width: 300px;
+}
+.fa-bullseye {
+    color: red;
+}
+.upper-item {
+    margin-left: 10px;
+    font-size: 28px;
+}
+#user-id {
+    font-size: 20px;
+}
+#version {
+    font-size: 20px;
+}
+.bottom-item {
+    font-size: 17px;
+    margin-left: 35px;
+}
+#playback-buttons .btn {
+    margin-top: 20px;
+    float: right;
+    margin-right: 5px;
+}
+.device {
+    margin-top: 150px;
+    margin-left: 30px;
+}
+#location {
+    font-size: 20px;
+}
+#city {
+    margin-left: 5px;
+    margin-top: 15px;
 }
