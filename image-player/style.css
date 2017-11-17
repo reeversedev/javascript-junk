@@ -90,3 +90,17 @@
     margin-left: 5px;
     margin-top: 15px;
 }
+.star {
+    float: right;
+    margin-right: 10px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+    color: black;
+}
+.panel-default > .panel-heading {
+    background-color: lightcyan;
+}
+.well {
+    background-color: white;
+}
