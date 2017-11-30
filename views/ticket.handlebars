@@ -1,0 +1,11 @@
+{{#each response}}
+<div class="row">
+    <div class="col-sm-12">
+        <h3>{{this.title}}</h3>
+        <p>{{this.description}}</p>
+        <p>Raised by - {{this.userName}}</p>
+        <p>{{this.userEmail}}</p>
+        <small>{{this.createdAt}}</small>
+    </div>
+</div>
+{{/each}}

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
+var Query = require('../models/query');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -85,4 +86,60 @@ router.get('/logout',function(req, res){
     res.redirect('/support/login');
 });
 
+router.get('/create',function(req, res){
+    res.render('create-ticket')
+});
+
+router.post('/create',function(req,res){
+    var queryTitle = req.body.title;
+    var queryDescription = req.body.description;
+    var userName = req.user.firstName;
+    var userMobile = req.user.mobile;
+    var userEmail = req.user.email;
+    req.checkBody('title','Title is required').notEmpty();
+    req.checkBody('description','Description is required').notEmpty();
+    var errors = req.validationErrors();
+    
+    if(errors){
+        res.render('create-ticket',{errors:errors});
+    }
+    else{
+        var newQuery = new Query({
+            title: queryTitle,
+            description: queryDescription,
+            userName: userName,
+            userMobile: userMobile,
+            userEmail: userEmail
+        });
+        newQuery.save(function (err) {
+            if (err) {
+                console.log(err);
+            }
+        });
+        req.flash('success_msg',"created ticket");
+        res.redirect('/');
+    }
+});
+
+router.get('/tickets', function (req, res) {
+    var email = req.user.email;
+    Query.find({ userEmail: email }).sort({ 'createdAt': 'desc' }).exec(function (err, response) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('tickets',{"response":response});
+        }
+    });
+});
+
+router.get('/ticket/:id', function (req, res) {
+    var id = req.params.id;
+    Query.findOne({ _id: id }, function (err, response) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('ticket',{"response":response});
+        }
+    });
+});
 module.exports=router;

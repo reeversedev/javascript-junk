@@ -1,0 +1,9 @@
+{{#each response}}
+<div class="row">
+    <div class="col-sm-12">
+        <h3><a href="ticket/{{this._id}}">{{this.title}}</a></h3>
+        <p>{{this.description}}</p>
+        <small>{{this.createdAt}}</small>
+    </div>
+</div>
+{{/each}}
