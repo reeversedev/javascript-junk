@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="devices.css">
+    <link rel="stylesheet" href="media-player.css">
     <link rel="stylesheet" href="style.css">
     <title>Image Player</title>
 </head>
@@ -129,17 +130,17 @@
                         <div class="device-content">
                             <div id="media-player">
                                 <video id="media-video" controls>
-                                    <source src="video.mp4" type="video/mp4">
+                                    <source src="https://s3.amazonaws.com/redshift-teststore/screen-recording-video/59fc4fbedef21809175b055a_587c98ca-4fb5-4fd0-bf31-e7fc998dd419_1511162160823.mp4" type="video/mp4">
                                 </video>
-                                <div id="media-controls">
-                                    <button class="play" id="play-pause-button" title="play" onclick="togglePlayPause();">Play</button>
-                                </div>
+                                <!-- <div id="media-controls">
+                                    <progress id='progress-bar' min='0' max='100' value='0'>0% played</progress>
+                                    <button id='play-pause-button' class='play' title='play' onclick='togglePlayPause();'>Play</button>
+                                </div> -->
                             </div>
                         </div>
                     </div>
 
                     <!-- Device other Features -->
-                    <div class="device-stripe"></div>
                     <div class="device-header"></div>
                     <div class="device-sensors"></div>
                     <div class="device-btns"></div>

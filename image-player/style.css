@@ -13,32 +13,6 @@
     right: 10px;
     bottom: 10px;
 }
-#audioplayer{
-	width: 300px;
-	height: 60px;
-	margin: 520px auto auto auto;
-}
-#pButton{
-    height:60px; 
-    width: 60px;
-    border: none;
-    margin-top: 3px;
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    float:left;
-    outline:none;
-}
-.play{
-    background: url('./play.png');
-    height: 40px!important;
-    width: 40px!important;
-}
-.pause{
-    background: url('./pause.png');
-    height: 40px!important;
-    width: 40px!important;
-}
 #timeline{
 	width: 250px;
 	height: 10px;
@@ -74,13 +48,14 @@
     font-size: 17px;
     margin-left: 35px;
 }
-#playback-buttons .btn {
-    margin-top: 20px;
-    float: right;
-    margin-right: 5px;
-}
 .device {
     margin-left: 30px;
+}
+.device-frame {
+    height: 650px!important;
+}
+.device-content {
+    height: 500px!important;
 }
 #location {
     font-size: 20px;

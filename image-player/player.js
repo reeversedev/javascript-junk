@@ -108,27 +108,62 @@ document.addEventListener('DOMContentLoaded', function () {
     initialiseMediaPlayer();
 }, false);
 var mediaPlayer;
+var playPauseBtn;
+var progressBar;
+
 function initialiseMediaPlayer() {
     mediaPlayer = document.getElementById('media-video');
+    playPauseBtn = document.getElementById('play-pause-button');
+    progressBar = document.getElementById('progress-bar');
     mediaPlayer.controls = false;
+    mediaPlayer.addEventListener('timeupdate', updateProgressBar, false);
+    mediaPlayer.addEventListener('play', function () {
+        changeButtonType(playPauseBtn, 'pause');
+    }, false);
+    mediaPlayer.addEventListener('pause', function () {
+        changeButtonType(playPauseBtn, 'play');
+    }, false);
 }
 function togglePlayPause() {
-    var btn = document.getElementById('play-pause-button');
     if (mediaPlayer.paused || mediaPlayer.ended) {
-        btn.title = 'pause';
-        btn.innerHTML = 'pause';
-        btn.className = 'pause';
+        changeButtonType(playPauseBtn, 'pause');
         mediaPlayer.play();
     }
     else {
-        btn.title = 'play';
-        btn.innerHTML = 'play';
-        btn.className = 'play';
+        changeButtonType(playPauseBtn, 'play');
         mediaPlayer.pause();
     }
+
 }
 function changeButtonType(btn, value) {
     btn.title = value;
     btn.innerHTML = value;
     btn.className = value;
+}
+mediaPlayer.addEventListener('timeupdate', updateProgressBar, false);
+
+function updateProgressBar() {
+    var percentage = Math.floor((100 / mediaPlayer.duration) * mediaPlayer.currentTime);
+    progressBar.value = percentage;
+    progressBar.innerHTML = percentage + '% played';
+}
+function resetPlayer() {
+    progressBar.value = 0;
+    mediaPlayer.currentTime = 0;
+    changeButtonType(playPauseBtn, 'play');
+}
+// Loads a video item into the media player
+function loadVideo() {
+    for (var i = 0; i < arguments.length; i++) {
+        var file = arguments[i].split('.');
+        var ext = file[file.length - 1];
+        // Check if this media can be played
+        if (canPlayVideo(ext)) {
+            // Reset the player, change the source file and load it
+            resetPlayer();
+            mediaPlayer.src = arguments[i];
+            mediaPlayer.load();
+            break;
+        }
+    }
 }
