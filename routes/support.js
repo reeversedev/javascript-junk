@@ -142,4 +142,32 @@ router.get('/ticket/:id', function (req, res) {
         }
     });
 });
+
+router.get('/all-tickets', function (req, res) {
+    Query.find({ }).sort({ 'createdAt': 'desc' }).exec(function (err, response) {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('alltickets',{"response":response});
+        }
+    });
+});
+
+router.post('/ticket/:id',function(req,res){
+
+    var userName = req.user.email;
+    var queryText = req.body.reply;
+    var id = req.params.id;
+    
+    var query = Query.find({_id:id},function(err, response){
+        if(err){
+            console.log('err', err);
+        }
+        else{
+            foundQuery = response;
+            console.log(foundQuery);
+        }
+    });
+});
+
 module.exports=router;

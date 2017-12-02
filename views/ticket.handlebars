@@ -1,11 +1,22 @@
-{{#each response}}
 <div class="row">
     <div class="col-sm-12">
-        <h3>{{this.title}}</h3>
-        <p>{{this.description}}</p>
-        <p>Raised by - {{this.userName}}</p>
-        <p>{{this.userEmail}}</p>
-        <small>{{this.createdAt}}</small>
+        <select class="btn btn-default btn-block">
+            <option value="open" selected>Open</option>
+            <option value="closed">Closed</option>
+        </select>
     </div>
 </div>
-{{/each}}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h3>{{response.title}}</h3>
+        <p>{{response.description}}</p>
+        <small>{{response.createdAt}}</small>
+    </div>
+</div>
+<hr>
+<h4 class="text-center">Replies</h4>
+<form action="/support/ticket/{{response.id}}" method="post">
+<textarea rows="5" cols="57" name="reply"></textarea>
+<button class="btn btn-success" type="submit">Reply</button>
+</form>

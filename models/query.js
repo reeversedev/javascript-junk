@@ -11,6 +11,12 @@ var QuerySchema = new Schema({
     createdAt: { type: Date, default: Date.now() },
     updatedAt: { type: Date, default: Date.now() },
     ticketStatus: { type: String, default: 'Open' },
+
+    reply: [{
+        userName: String,
+        queryText: String,
+        createdAt: { type: Date, default: Date.now() }
+    }]
 });
 
 var Query = module.exports = mongoose.model('Query', QuerySchema);
