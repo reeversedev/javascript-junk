@@ -1,8 +1,14 @@
 {{#each response}}
 <div class="row">
     <div class="col-sm-12">
-        <h3><a href="ticket/{{this._id}}">{{this.title}}</a></h3>
+        <h3>
+            <a href="ticket/{{this._id}}" id="link">{{this.title}}</a>
+        </h3>
+        <span style="margin-right:10px">
+            <button id="delete" type="submit" data-id="{{this._id}}">Delete</button>
+        </span>
         <small>{{this.createdAt}}</small>
     </div>
 </div>
 {{/each}}
+<script src="/javascripts/index.js"></script>
